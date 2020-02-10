@@ -278,6 +278,12 @@ class FlutterWebviewPlugin {
     return await _channel.invokeMethod('cleanCookies');
   }
 
+  //Get All Cookies
+  Future<String> getAllCookies(String url) async {
+    final res = await _channel.invokeMethod('getAllCookies', {'url': url});
+    return res;
+  }
+
   // Stops current loading process
   Future<Null> stopLoading() async =>
       await _channel.invokeMethod('stopLoading');
