@@ -279,9 +279,17 @@ class FlutterWebviewPlugin {
   }
 
   //Get All Cookies
-  Future<String> getAllCookies(String url) async {
+  Future<Map<String,String>> getAllCookies(String url) async {
     final res = await _channel.invokeMethod('getAllCookies', {'url': url});
-    return res;
+    final cookies = <String, String>{};
+
+    if (res?.isNotEmpty == true) {
+      res.split(';').forEach((String cookie) {
+        final split = cookie.split('=');
+        cookies[split[0]] = split[1];
+      });
+    }
+    return cookies;
   }
 
   // Stops current loading process
