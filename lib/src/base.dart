@@ -287,7 +287,7 @@ class FlutterWebviewPlugin {
       res.split(';').forEach((String cookie) {
         if(cookie.trim().isNotEmpty){
           final split = cookie.split('=');
-          cookies[split[0]] = split[1];
+          cookies[split[0].trim()] = split[1];
         }
       });
     }
