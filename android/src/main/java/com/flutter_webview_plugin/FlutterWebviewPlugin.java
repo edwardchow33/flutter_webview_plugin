@@ -320,6 +320,12 @@ public class FlutterWebviewPlugin implements MethodCallHandler, PluginRegistry.A
         return (int) (dp * scale + 0.5f);
     }
 
+    private void getAllCookies(MethodCall call, final MethodChannel.Result result){
+        if (webViewManager != null){
+            webViewManager.getAllCookies(call,result);
+        }
+    }
+
     @Override
     public boolean onActivityResult(int i, int i1, Intent intent) {
         if (webViewManager != null && webViewManager.resultHandler != null) {

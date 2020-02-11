@@ -561,10 +561,4 @@ class WebviewManager {
             webView.stopLoading();
         }
     }
-
-    private void getAllCookies(MethodCall call, final MethodChannel.Result result){
-        if (webViewManager != null){
-            webViewManager.getAllCookies(call,result);
-        }
-    }
 }
